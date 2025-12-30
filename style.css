@@ -8,7 +8,7 @@
 
 body {
     height: 100vh;
-    background: #444444; /* Dark Grey Background */
+    background: #444444; 
     display: flex;
     overflow: hidden;
     color: white;
@@ -20,7 +20,7 @@ body {
     height: 100%;
 }
 
-/* Sidebar Styling */
+/* Sidebar Styling - Desktop */
 .sidebar {
     width: 300px;
     background: rgba(30, 30, 30, 0.8);
@@ -57,7 +57,7 @@ body {
     margin-bottom: 12px; 
 }
 
-/* Glass Effect Buttons with White Rim Gradient Edges */
+/* Glass Buttons with White Rim Gradient */
 .file-menu a {
     display: block;
     padding: 16px 20px;
@@ -69,19 +69,18 @@ body {
     transition: all 0.3s ease;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid transparent; 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
 }
 
 .file-menu a:hover {
     background: rgba(255, 255, 255, 0.15);
-    /* White rim gradient effect via shadows */
     box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.6), 
                 0 0 15px rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
 }
 
-/* Viewer Area - Maximized Viewport */
+/* Viewer Area */
 .viewer-area {
     flex-grow: 1;
     padding: 20px 30px 10px 30px;
@@ -96,7 +95,7 @@ body {
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    padding: 15px;
+    padding: 10px;
     margin-bottom: 10px;
 }
 
@@ -108,29 +107,73 @@ iframe {
     border-radius: 10px;
 }
 
-/* Lowered Footer - Aligned to the RIGHT */
 .gallery-footer {
     width: 100%;
     padding-bottom: 15px;
-    text-align: right; /* Aligned text to right */
+    text-align: right; 
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.5);
 }
 
-.footer-links a {
-    color: #ffffff; /* White hyperlink */
-    text-decoration: none;
-    font-weight: 500;
-}
+.footer-links a { color: #ffffff; text-decoration: none; }
+.footer-links a:hover { text-decoration: underline; }
 
-.footer-links a:hover {
-    text-decoration: underline;
-}
-
-/* Mobile Adjustments */
+/* --- MOBILE OPTIMIZATIONS --- */
 @media (max-width: 768px) {
-    .main-wrapper { flex-direction: column; }
-    .sidebar { width: 100%; height: auto; padding: 20px; }
-    .file-menu { display: flex; overflow-x: auto; gap: 10px; }
-    .gallery-footer { text-align: center; } /* Center on mobile for better UX */
+    body {
+        overflow-y: auto; /* Allow scrolling on small screens */
+    }
+
+    .main-wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 20px 10px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        align-items: center;
+    }
+
+    .menu-logo {
+        width: 80px;
+        margin-bottom: 15px;
+    }
+
+    .menu-title {
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 0.7rem;
+    }
+
+    .file-menu {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap; /* Wraps buttons if screen is too narrow */
+    }
+
+    .file-menu li {
+        margin-bottom: 0;
+        flex: 1 1 auto; /* Allows buttons to grow and fit */
+        min-width: 100px;
+    }
+
+    .file-menu a {
+        padding: 12px 10px;
+        font-size: 0.75rem; /* Smaller font for mobile */
+        white-space: nowrap;
+    }
+
+    .viewer-area {
+        height: 60vh; /* Set a specific height for the viewer on mobile */
+        padding: 15px 10px;
+    }
+
+    .gallery-footer {
+        text-align: center;
+        padding-top: 10px;
+    }
 }
