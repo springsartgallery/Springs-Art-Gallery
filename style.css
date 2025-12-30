@@ -8,7 +8,7 @@
 
 body {
     height: 100vh;
-    background: #535353; /* Dark Grey Background */
+    background: #444444; /* Dark Grey Background */
     display: flex;
     overflow: hidden;
     color: white;
@@ -22,80 +22,82 @@ body {
 
 /* Sidebar Styling */
 .sidebar {
-    width: 280px;
-    background: rgba(109, 109, 109, 0.9); /* Deep Orange */
-    backdrop-filter: blur(15px);
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 30px 20px;
+    width: 300px;
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 40px 15px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     z-index: 10;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .menu-logo { 
-    width: 140px; 
-    margin-bottom: 30px; 
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+    width: 120px; 
+    margin-bottom: 40px; 
+    align-self: center;
 }
 
 .menu-title { 
-    color: white; 
-    margin-bottom: 25px; 
-    font-size: 1.1rem; 
+    font-size: 0.8rem; 
     text-transform: uppercase; 
-    letter-spacing: 2px;
-    font-weight: 600;
+    letter-spacing: 3px; 
+    margin-bottom: 20px; 
+    color: rgba(255,255,255,0.6);
+    width: 100%;
+    padding: 0 10px;
 }
 
 .file-menu { 
     list-style: none; 
-    width: 100%; 
+    width: 100%;
 }
 
 .file-menu li { 
     margin-bottom: 12px; 
 }
 
+/* Glass Effect Buttons with White Rim Gradient Edges */
 .file-menu a {
     display: block;
-    padding: 15px;
-    color: white;
+    padding: 16px 20px;
+    color: #ffffff;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    text-align: center;
+    font-size: 0.9rem;
     font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid transparent; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
 }
 
 .file-menu a:hover {
-    background: #ff4500; /* Bright Red-Orange on hover */
-    transform: translateX(8px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.15);
+    /* White rim gradient effect via shadows */
+    box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.6), 
+                0 0 15px rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
 }
 
-/* Viewer Area Styling */
+/* Viewer Area - Maximized Viewport */
 .viewer-area {
     flex-grow: 1;
-    padding: 40px;
+    padding: 20px 30px 10px 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Pushes footer to bottom */
-    align-items: center;
 }
 
 .glass-box {
-    width: 100%;
-    flex-grow: 1; /* Takes up available space */
-    background: rgba(255, 255, 255, 0.03);
+    flex-grow: 1;
+    background: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(15px);
-    border-radius: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-    margin-bottom: 25px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    margin-bottom: 10px;
 }
 
 iframe {
@@ -103,63 +105,32 @@ iframe {
     height: 100%;
     border: none;
     background: transparent;
+    border-radius: 10px;
 }
 
-/* Footer Styling */
+/* Lowered Footer - Aligned to the RIGHT */
 .gallery-footer {
     width: 100%;
-    padding: 10px 0;
-    text-align: center;
+    padding-bottom: 15px;
+    text-align: right; /* Aligned text to right */
+    font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.5);
-    font-size: 0.85rem;
-}
-
-.footer-content p {
-    margin-bottom: 8px;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
 }
 
 .footer-links a {
-    color: rgb(255, 149, 0); /* Theme orange */
+    color: #ffffff; /* White hyperlink */
     text-decoration: none;
-    transition: 0.3s;
+    font-weight: 500;
 }
 
 .footer-links a:hover {
-    color: white;
     text-decoration: underline;
 }
 
-/* Responsive Mobile Layout */
+/* Mobile Adjustments */
 @media (max-width: 768px) {
     .main-wrapper { flex-direction: column; }
-    
-    .sidebar { 
-        width: 100%; 
-        height: auto; 
-        border-right: none; 
-        border-bottom: 1px solid rgba(255,255,255,0.1); 
-        padding: 20px;
-    }
-    
-    .file-menu { 
-        display: flex; 
-        gap: 10px; 
-        overflow-x: auto; 
-        padding-bottom: 5px; 
-    }
-    
-    .file-menu li { flex-shrink: 0; }
-    
-    .viewer-area { 
-        height: 70vh; 
-        padding: 20px;
-    }
-
-    .glass-box { height: 100%; }
+    .sidebar { width: 100%; height: auto; padding: 20px; }
+    .file-menu { display: flex; overflow-x: auto; gap: 10px; }
+    .gallery-footer { text-align: center; } /* Center on mobile for better UX */
 }
